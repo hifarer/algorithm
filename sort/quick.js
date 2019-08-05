@@ -12,7 +12,7 @@ console.log(list)
 function quickSort (arr) {
   if (arr.length <= 1) return arr
   let index = 0
-  let pivot = arr[index]
+  let pivot = arr[index]    // 基准元素
   let left = []
   let right = []
   for (let i = 0; i < arr.length; i++) {
