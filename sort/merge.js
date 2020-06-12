@@ -10,7 +10,7 @@ console.log(arr)
  * 拆成长度为一的数组，然后比较两个数组的第一项，小的先进入结果数组
  */
 
-function mergeSort (arr) {
+function mergeSort(arr) {
   if (arr.length < 2) {
     return arr
   }
@@ -20,10 +20,10 @@ function mergeSort (arr) {
   return merge(mergeSort(left), mergeSort(right))
 }
 
-function merge (left, right) {
+function merge(left, right) {
   let result = []
   while (left.length > 0 && right.length > 0) {
-    // 注意: 判断的条件是小于或等于，如果只是小于，那么排序将不稳定.
+    // 注意: 判断的条件是小于或等于，如果只是小于，那么排序将不稳定
     if (left[0] <= right[0]) {
       result.push(left.shift())
     } else {
