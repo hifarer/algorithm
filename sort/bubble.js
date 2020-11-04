@@ -9,8 +9,9 @@ console.log(arr)
  * 每次冒泡操作都会对相邻的两个元素进行比较，看是否满足大小关系要求。如果不满足就让它俩互换。
  * 一次冒泡会让至少一个元素移动到它应该在的位置，重复 n 次，就完成了 n 个数据的排序工作。
  */
-for (let i = 0; i < arr.length - 1; i++) {
+for (let i = 0; i < arr.length; i++) {
   let hasChange = false // 提前退出冒泡循环的标志位
+  // -i表示，去掉排序好的元素；-1表示跟下一个元素对比，所以不能走到最头上。
   for (let j = 0; j < arr.length - 1 - i; j++) {
     if (arr[j + 1] < arr[j]) {
       [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]

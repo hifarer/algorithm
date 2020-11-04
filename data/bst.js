@@ -72,7 +72,7 @@ class BST {
     if (!this.root) return
     let node = this.root
     let stack = []
-    // 进出栈序列：根左左根右右
+    // 进出栈序列：根左左根 右右
     while (stack.length > 0 || node) {
       if (node) {
         stack.push(node)
@@ -90,7 +90,7 @@ class BST {
     let node = this.root
     let stack = []
     stack.push(node)
-    // 进出栈序列：根根左右左右
+    // 进出栈序列：根根 右左左右
     while (stack.length > 0) {
       node = stack.pop()
       node.show()
@@ -102,16 +102,19 @@ class BST {
   loopPostOrder() {
     if (!this.root) return
     let node = this.root
-    let stack = []
-    let datas = []
+    let stack = []    // 节点
+    let datas = []    // 数据
     stack.push(node)
     while (stack.length > 0) {
       node = stack.pop()
-      // 根右左左右根
+      // 数据进栈顺序：根右左
       datas.push(node.data)
+      // 节点：根根左右右左
       if (node.left) stack.push(node.left)
       if (node.right) stack.push(node.right)
     }
+    console.log(datas)
+    // 数据出栈顺序：左右根
     while(datas.length > 0) {
       console.log(datas.pop())
     }
@@ -260,10 +263,11 @@ class BST {
   }
 }
 
-const tree = new BST([40, 32, 88, 97, 190, 3, 0, -10])
-tree.insert(24)
-tree.insert(75)
-tree.insert(100)
+const tree = new BST([40, 32, 88])
+// const tree = new BST([40, 32, 88, 97, 190, 3, 0, -10])
+// tree.insert(24)
+// tree.insert(75)
+// tree.insert(100)
 console.log(JSON.stringify(tree.root))
 
 // tree.inOrder(tree.root)
@@ -272,7 +276,7 @@ console.log(JSON.stringify(tree.root))
 console.log('------------------------------------------')
 // tree.loopInOrder()
 // tree.loopPreOrder()
-// tree.loopPostOrder()
+tree.loopPostOrder()
 // tree.levelOrder()
 
 // let depth = tree.getTreeDepth()
@@ -285,7 +289,7 @@ console.log('------------------------------------------')
 // let max = tree.findMax()
 // console.log(max)
 
-tree.removeNodeFromTree(40)
-console.log(JSON.stringify(tree.root))
-tree.removeNodeFromTree(97)
-console.log(JSON.stringify(tree.root))
+// tree.removeNodeFromTree(40)
+// console.log(JSON.stringify(tree.root))
+// tree.removeNodeFromTree(97)
+// console.log(JSON.stringify(tree.root))
